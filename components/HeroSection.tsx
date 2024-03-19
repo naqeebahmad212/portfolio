@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { ReactTyped } from "react-typed";
+
 import Typed from "./Typed";
 import Image from "next/image";
 import MyImg from "@/Images/myImg.png";
-import AnimPic from "@/Images/825-removebg-preview.png";
 import { AnimatePresence, motion } from "framer-motion";
 import { Noto_Serif } from "next/font/google";
 import bg from "@/Images/9078-removebg-preview.png";
@@ -16,7 +15,6 @@ const notoSerif = Noto_Serif({
   subsets: ["latin"],
 });
 
-import { Badge } from "./ui/badge";
 import { ParticlesContainer } from "./ParticlesContainer";
 import Shpere from "./Shpere";
 
