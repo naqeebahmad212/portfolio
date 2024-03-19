@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
 import { Navbar } from "./Navbar/Navbar";
-import { MovingBorder } from "./ui/moving-border";
 
 const Header = () => {
   return (
