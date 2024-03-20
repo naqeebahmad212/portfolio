@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Typed from "./Typed";
 import Image from "next/image";
@@ -17,24 +17,30 @@ const notoSerif = Noto_Serif({
 
 import { ParticlesContainer } from "./ParticlesContainer";
 import Shpere from "./Shpere";
+import { BackgroundBeams } from "./ui/background-beams";
+import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 
 const HeroSection = () => {
+  const [bgClr, setBgClr] = useState<string>();
+  const [randNum, setRandNum] = useState<number>();
+
+  // changeClr();
+
+  const changeColr = () => {
+    setRandNum(Math.floor(Math.random() * 16777215));
+  };
+
+  useEffect(() => {
+    setBgClr("#" + randNum?.toString(16));
+  }, [randNum]);
+
+  setTimeout(() => {
+    changeColr();
+  }, 5000);
+
   return (
     <>
-      <motion.div
-        className=" w-full min-h-screen flex justify-center flex-col lg:flex-row relative z-0 gap-4 "
-        initial={{
-          backgroundSize: "50%",
-          rotate: "0deg",
-          backgroundPosition: "top",
-        }}
-        animate={{
-          backgroundSize: ["40%", "30%", "40%"],
-          backgroundPosition: "left",
-        }}
-        transition={{ duration: 20, repeat: Infinity }}
-        style={{ backgroundImage: `url(${bg.src})` }}
-      >
+      <motion.div className=" w-full min-h-screen flex  flex-col lg:flex-row relative z-0 gap-4  ">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,13 +49,13 @@ const HeroSection = () => {
             duration: 0.9,
             delay: 0.7,
           }}
-          className={`intro w-[60%] h-[30%] pt-[100px] pl-[50px] `}
+          className={`intro w-[80%] md:w-[40%] lg:w-[30%] h-[30%] pt-[100px] pl-[50px] `}
         >
           <div className={`${notoSerif.className} text-3xl font-bold`}>
             Hi I`m <span className="text-themeText"> Naqeeb Ahmad</span>
             <Typed />
           </div>
-          <div className="text-sm font-extralight text-white pt-3">
+          <div className="text-sm font-extralight text-foreground pt-3">
             With a passion for creating seamless digital experiences from front
             to back. I specialize in building robust web applications crafting
             elegant user interfaces with Nextjs|Reactjs to architecting scalable
@@ -72,69 +78,9 @@ const HeroSection = () => {
             />
           </motion.div>
         </div>
+        {/* <BackgroundBeams /> */}
+        <BackgroundGradientAnimation />
 
-        <div className="design flex justify-center h-[250px] lg:h-[400px] self-center w-[600px]  shadow-2xl bg-gray-50">
-          <AnimatePresence>
-            {/* <motion.img
-              initial={{ y: 0, rotate: "0deg" }}
-              animate={{ y: [0, -50, 0], rotate: ["0deg", "20deg", "0deg"] }}
-              exit={{ y: 0 }}
-              src={AnimPic.src}
-              transition={{
-                repeat: Infinity,
-                duration: 10,
-              }}
-              className="h-[50%]"
-            /> */}
-
-            <motion.div
-              initial={{ y: 300, x: 0, rotate: "0deg" }}
-              animate={{
-                y: [300, -150, 0],
-                x: [0, -50, 0],
-                rotate: ["0deg", "40deg", "0deg"],
-              }}
-              exit={{ y: 300 }}
-              transition={{
-                duration: 15,
-              }}
-              className=" top-[300px] left-5 lg:top-10 lg:right-[20%]"
-            >
-              <motion.img
-                initial={{ y: 0, x: 0, rotate: "0deg" }}
-                animate={{
-                  y: [0, 50, 0],
-                  x: [0, -50, 0],
-                  rotate: ["0deg", "40deg", "0deg"],
-                }}
-                exit={{ y: 0 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 15,
-                }}
-                className=""
-                src={design.src}
-                alt="image"
-                width={300}
-                height={400}
-              />
-            </motion.div>
-
-            <motion.div
-              className=" absolute top-[200px] left-5 lg:top-10 lg:right-[20%]"
-              initial={{ scale: 0 }}
-              animate={{
-                scale: 1,
-              }}
-              exit={{ scale: 0 }}
-              transition={{
-                duration: 5,
-              }}
-            >
-              <Shpere />
-            </motion.div>
-          </AnimatePresence>
-        </div>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0, transformOrigin: "right" }}
@@ -143,13 +89,27 @@ const HeroSection = () => {
             duration: 0.9,
             delay: 0.9,
           }}
-          className="MyImage w-full lg:w-[60%] pr-10 h-full flex justify-center self-center mx-auto lg:self-end "
+          className="MyImage right-[1%] absolute -bottom-32 lg:bottom-0 w-full lg:w-[60%]  h-full flex "
         >
-          <Image src={MyImg} alt="Owner" height={800} width={400} />
+          <motion.div
+            whileDrag={{ y: 100 }}
+            whileHover={{ rotate: ["0deg", 20 + "deg", "0deg"] }}
+            whileTap={{ scale: 0.8 }}
+            transition={{ duration: 1 }}
+            className={`h-[350px] image-container absolute  transition-all duration-200 right-[3%] bottom-[10%] z-0 w-[350px] `}
+            style={{ backgroundColor: `${bgClr}` }}
+          ></motion.div>
+          <Image
+            src={MyImg}
+            alt="Owner"
+            height={800}
+            width={400}
+            className="z-10 myimg right-[1%] absolute bottom-0 "
+          />
         </motion.div>
       </motion.div>
 
-      <ParticlesContainer />
+      {/* <ParticlesContainer /> */}
     </>
   );
 };

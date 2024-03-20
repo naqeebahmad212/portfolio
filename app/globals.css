@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0, 0%, 3%, 1;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -118,7 +118,6 @@
   body {
     margin: 0;
     height: 100%;
-    /* overflow: hidden; */
   }
 }
 
@@ -165,4 +164,21 @@
 
 .shpere canvas {
   background-color: transparent !important;
+}
+
+.image-container {
+  clip-path: polygon(
+    50% 0%,
+    83% 12%,
+    100% 43%,
+    94% 78%,
+    68% 100%,
+    32% 100%,
+    6% 78%,
+    0% 43%,
+    17% 12%
+  );
+}
+.myimg {
+  pointer-events: none;
 }

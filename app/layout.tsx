@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="lg:overflow-hidden">
+    <html lang="en" className="lg:overflow-hidde">
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -26,7 +26,7 @@ export default function RootLayout({
         disableTransitionOnChange
         themes={["light", "dark"]}
       >
-        <body className={`${inter.className} lg:overflow-hidden`}>
+        <body className={`${inter.className} lg:overflow-hidde`}>
           <Header />
           <SideNav />
 

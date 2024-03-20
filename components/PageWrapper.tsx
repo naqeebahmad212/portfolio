@@ -2,6 +2,8 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import girlWlak from "@/Images/output-onlinegiftools.gif";
+import Image from "next/image";
 
 export const PageWrapper = ({
   children,
@@ -13,7 +15,7 @@ export const PageWrapper = ({
   const path = usePathname();
   return (
     <AnimatePresence>
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <motion.div
           key={path}
           className="fixed top-0 left-0 h-screen w-screen bg-blue-400 flex justify-center items-center text-2xl font-bold text-themeText pointer-events-none"
