@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import { PageWrapper } from "@/components/PageWrapper";
-import { ModeToggle } from "@/components/theme-toggle";
+
 import { Button } from "@/components/ui/button";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import React from "react";

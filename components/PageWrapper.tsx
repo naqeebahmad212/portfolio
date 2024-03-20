@@ -2,8 +2,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import girlWlak from "@/Images/output-onlinegiftools.gif";
-import Image from "next/image";
 
 export const PageWrapper = ({
   children,

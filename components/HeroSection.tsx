@@ -4,10 +4,9 @@ import React, { useEffect, useState } from "react";
 import Typed from "./Typed";
 import Image from "next/image";
 import MyImg from "@/Images/myImg.png";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Noto_Serif } from "next/font/google";
-import bg from "@/Images/9078-removebg-preview.png";
-import design from "@/Images/Untitled_design-removebg-preview.png";
+
 import circleText from "@/Images/asjf_asdf_asdf_sd-removebg-preview.png";
 
 const notoSerif = Noto_Serif({
@@ -15,9 +14,6 @@ const notoSerif = Noto_Serif({
   subsets: ["latin"],
 });
 
-import { ParticlesContainer } from "./ParticlesContainer";
-import Shpere from "./Shpere";
-import { BackgroundBeams } from "./ui/background-beams";
 import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 
 const HeroSection = () => {
