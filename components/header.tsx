@@ -1,14 +1,15 @@
 "use client";
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 import React from "react";
 import { Button } from "./ui/button";
@@ -24,7 +25,7 @@ import {
 
 const Header = () => {
   return (
-    <Drawer>
+    <AlertDialog>
       <header className="sticky top-0 bg-transparent ">
         <nav className="w-full p-4 flex items-center justify-between px-10 bg-transparent z-30 ">
           <div className="brand text-2xl font-bold">
@@ -34,42 +35,43 @@ const Header = () => {
           <div className="flex items-center">
             <ModeToggle />
 
-            <DrawerTrigger className="hire-button text-foreground">
+            <AlertDialogTrigger className="hire-button text-foreground">
               Hire Me
-            </DrawerTrigger>
+            </AlertDialogTrigger>
           </div>
         </nav>
       </header>
 
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>
-            Which MarketPlace would you like to hire me on?
-          </DrawerTitle>
-          {/* <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
-        </DrawerHeader>
-        <DrawerFooter className="">
-          <div className="flex gap-5">
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>
+            Which Marketpalce would you prefer?
+          </AlertDialogTitle>
+          <AlertDialogDescription className="flex gap-5">
             <Link href={"https://www.fiverr.com/s/Geo9Kd"} target="_blank">
-              <IconBrandFiverr /> Fiverr
+              <IconBrandFiverr className="hover:scale-110 transition-all duration-300" />{" "}
+              Fiverr
             </Link>
             <Link
               href={"https://www.upwork.com/freelancers/~01d63dc870a67d5e23"}
               target="_blank"
             >
-              <IconBrandUpwork /> Upwork
+              <IconBrandUpwork className="hover:scale-110 transition-all duration-300" />{" "}
+              Upwork
             </Link>
             <p className="self-end text-center">
               <IconTruckLoading /> More coming soon...
             </p>
-          </div>
-
-          <DrawerClose>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction className="hover:bg-hoverCol">
+            Continue
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 };
 
