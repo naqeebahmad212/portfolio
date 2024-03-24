@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Lenis from "@studio-freight/lenis";
 
 export const PageWrapper = ({
   children,
@@ -10,6 +11,16 @@ export const PageWrapper = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
   const path = usePathname();
   return (
     <AnimatePresence>

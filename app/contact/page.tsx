@@ -1,14 +1,8 @@
 import { PageWrapper } from "@/components/PageWrapper";
-import Loading from "@/loading";
 import React from "react";
 
 const page = () => {
-  return (
-    <PageWrapper>
-      contact us
-      <Loading />
-    </PageWrapper>
-  );
+  return <PageWrapper>contact us</PageWrapper>;
 };
 
 export default page;
