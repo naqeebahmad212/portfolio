@@ -12,9 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import React from "react";
-import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
-import { Navbar } from "./Navbar/Navbar";
 import "./components.css";
 import Link from "next/link";
 import {
