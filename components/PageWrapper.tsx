@@ -13,7 +13,7 @@ export const PageWrapper = ({
   const path = usePathname();
   return (
     <AnimatePresence>
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden z-0">
         <motion.div
           key={path}
           className="fixed top-0 left-0 h-screen w-screen bg-blue-400 flex justify-center items-center text-2xl font-bold text-themeText pointer-events-none"

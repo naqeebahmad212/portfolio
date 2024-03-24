@@ -85,11 +85,11 @@ export const BackgroundGradientAnimation = ({
   useEffect(() => {
     setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
   }, []);
-
+  // bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]
   return (
     <div
       className={cn(
-        "h-[120vh] w-screen fixed overflow-hidden  left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))] -z-10 opacity-40",
+        "h-screen w-screen  relative overflow-hidden top-0 left-0 bg-transparent bg-opacity-10",
         containerClassName
       )}
     >
@@ -114,7 +114,7 @@ export const BackgroundGradientAnimation = ({
       <div className={cn("", className)}>{children}</div>
       <div
         className={cn(
-          "gradients-container h-full w-full blur-lg",
+          "gradients-container h-full w-full blur-lg opacity-700 top-0",
           isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
         )}
       >

@@ -26,12 +26,14 @@ import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
 
 export const MacbookScroll = ({
+  margin,
   src,
   showGradient,
   title,
   badge,
   className,
 }: {
+  margin?: MotionValue<number>;
   src?: string;
   showGradient?: boolean;
   title?: string | React.ReactNode;
@@ -69,11 +71,12 @@ export const MacbookScroll = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -100, rotateY: "30deg" }}
+      style={{ marginLeft: margin, transitionDuration: "2" }}
+      initial={{ opacity: 0, y: -100, rotateY: "20deg" }}
       animate={{ opacity: 1, y: 0, rotateY: "0deg", transformOrigin: "left" }}
-      transition={{ duration: 2, delay: 0.9 }}
+      transition={{ duration: 5, delay: 0.9 }}
       ref={ref}
-      className={`min-h-[1200vh]  flex flex-col items-center py-0  justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-50 ${className}`}
+      className={`min-h-[1200vh] -z-30 pointer-event-none  flex flex-col items-center py-0  justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-50 ${className}`}
     >
       {/* <motion.h2
         style={{

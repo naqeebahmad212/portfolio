@@ -26,16 +26,16 @@ import {
 const Header = () => {
   return (
     <AlertDialog>
-      <header className="sticky top-0 bg-transparent ">
+      <header className="sticky top-0 bg-transparent z-[999] ">
         <nav className="w-full p-4 flex items-center justify-between px-10 bg-transparent z-30 ">
           <div className="brand text-2xl font-bold">
             Port <span className="text-themeText">Folio</span>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <ModeToggle />
 
-            <AlertDialogTrigger className="hire-button text-foreground">
+            <AlertDialogTrigger className="hire-button text-foreground z-[999]">
               Hire Me
             </AlertDialogTrigger>
           </div>
@@ -67,7 +67,9 @@ const Header = () => {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction className="hover:bg-hoverCol">
-            Continue
+            <Link href={"https://www.fiverr.com/s/Geo9Kd"} target="_blank">
+              Continue
+            </Link>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
